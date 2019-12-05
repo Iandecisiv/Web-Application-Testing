@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import Dashboard from './components/Dashboard';
+import Display from './components/Display';
+import swbaseball from './img/swbaseball.jpg';
 import './App.css';
 import styled from 'styled-components';
+
+const BigBoy = styled.div`
+  margin: 5%;
+`;
 
 function App() {
   const [strikes, setStrikes] = useState(0);
@@ -38,9 +45,11 @@ function App() {
   };
 
   return (
-    <div className="container">
-      
-    </div>
+    <BigBoy className="container">
+      <img src={swbaseball} alt="Star Wars baseball" data-testid="sw-img" />
+      <Display strikes={strikes} balls={balls} />
+      <Dashboard ball={ball} strike={strike} foul={foul} hit={hit} />
+    </BigBoy>
   );
 }
 
